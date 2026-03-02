@@ -17,6 +17,4 @@ public class PlayerInput : MonoBehaviour
         Vector2 readMove = move.ReadValue<Vector2>();
         Debug.Log(readMove);    
     }
-
-    //test comment 1
 }
