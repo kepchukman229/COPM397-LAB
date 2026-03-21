@@ -38,4 +38,22 @@ public class NPCMovement : MonoBehaviour
 
         }
     }
+
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            destination = other.transform.position;
+            agent.destination = destination;    
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            destination = waypoints[index].transform.position;
+            agent.destination = destination;
+        }
+    }
 }

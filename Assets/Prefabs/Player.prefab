@@ -18,7 +18,7 @@ GameObject:
   - component: {fileID: 8290801441083723626}
   m_Layer: 8
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -141,6 +141,7 @@ MonoBehaviour:
   mouseSensY: 15
   controller: {fileID: 5572780058539698742}
   cam: {fileID: 4367159522615015699}
+  audioController: {fileID: 0}
 --- !u!114 &7605111330111831403
 MonoBehaviour:
   m_ObjectHideFlags: 0
