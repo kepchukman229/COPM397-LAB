@@ -21,7 +21,6 @@ public class PlayerInput : MonoBehaviour
     private Vector3 velocity;
     [SerializeField, Self] private CharacterController controller;
     [SerializeField, Child] private Camera cam;
-    [SerializeField, Scene] private AudioContoller audioController;
 
     private void OnValidate()
     {
@@ -45,7 +44,7 @@ public class PlayerInput : MonoBehaviour
 
     private void Jump(InputAction.CallbackContext context)
     {
-        audioController.PlayJumpSFX();
+        AudioContoller.Instance.PlayJumpSFX();
     }
 
     // Update is called once per frame
