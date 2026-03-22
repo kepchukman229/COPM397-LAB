@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 610d3d267b95b4344a4c649548a77169, type: 3}
   m_Name: Masamune
   m_EditorClassIdentifier: Assembly-CSharp::ItemSO
-  itemName: 
+  itemName: Masamune
   isStackable: 0
   icon: {fileID: 0}
-  prefab: {fileID: 0}
+  prefab: {fileID: 6187871882187359575, guid: 43fb389b7c3acb74bad51c6f72c820bf, type: 3}
