@@ -16,6 +16,7 @@ public class PlayerInput : MonoBehaviour
     [SerializeField] private float gravity = -30.0f;
     [SerializeField] private float rotationSpeed = 4.0f;
     [SerializeField] private float mouseSensY = 5.0f;
+    [SerializeField] private float mobileScale = 10.0f;
     private float camXRotation;
     private Vector3 velocity;
     [SerializeField, Self] private CharacterController controller;
@@ -32,8 +33,10 @@ public class PlayerInput : MonoBehaviour
         look = InputSystem.actions.FindAction("Player/Look");
         jump = InputSystem.actions.FindAction("Player/Jump");
         jump.started += Jump;
+#if !UNITY_ANDROID
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
+#endif
     }
 
     void OnDisable()
@@ -59,12 +62,14 @@ public class PlayerInput : MonoBehaviour
         movement += velocity;
         controller.Move(movement);
 
-        //Rotation of the player
-        transform.Rotate(Vector3.up, readLook.x * rotationSpeed * Time.deltaTime);
 
-        //Rotation of the camera
-        camXRotation += mouseSensY * readLook.y * Time.deltaTime * -1;
-        camXRotation = Mathf.Clamp(camXRotation, -90f, 90f);
+#if UNITY_ANDROID
+        transform.Rotate(Vector3.up, readLook.x * rotationSpeed * mobileScale * Time.deltaTime);
+#else
+        transform.Rotate(Vector3.up, readLook.x * rotationSpeed * Time.deltaTime);
+#endif
+        camXRotation += mouseSensY * readLook.y * Time.deltaTime * -1 * 10;
+        camXRotation = Mathf.Clamp(camXRotation, -80f, 50f);
         cam.gameObject.transform.localRotation = Quaternion.Euler(camXRotation, 0, 0);
     }
 

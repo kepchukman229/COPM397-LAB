@@ -1,6 +1,5 @@
-using UnityEngine;
+    using UnityEngine;
 using System.Collections.Generic;
-using UnityEditor.Build.Content;
 
 public class RandomMap : MonoBehaviour
 {
