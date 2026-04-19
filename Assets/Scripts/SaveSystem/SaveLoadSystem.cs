@@ -24,6 +24,7 @@ public class SaveLoadSystem : PersistentSingleton<SaveLoadSystem>
         {
             gameData.sceneName = "Level 1";
         }
+        EventChannelManager.instance.gameDataEvent.RaiseEvent(gameData);
         SceneManager.LoadScene(gameData.sceneName); 
     }
 
